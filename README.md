@@ -351,5 +351,25 @@ docker-compose up -d
 - 세션 관리 및 캐싱
 - 포트: 6379
 
+## 실행 화면
+**초기 화면**
+![스크린샷 2024-11-24 230923](https://github.com/user-attachments/assets/acf495d6-5522-4d4e-9181-4ddc639848ce)
+**회원 가입**
+![스크린샷 2024-11-24 230954](https://github.com/user-attachments/assets/6460104c-9682-4d70-ad26-45f601ca548e)
+**로그인 후**
+![스크린샷 2024-11-24 231010](https://github.com/user-attachments/assets/c0d45e65-7e34-4766-a0d4-b0798c23f7f5)
+**카테고리 추가**
+![스크린샷 2024-11-24 231022](https://github.com/user-attachments/assets/c1476938-0274-409f-9199-ea36ea6804b8)
+**입/출금 내역 추가**
+![스크린샷 2024-11-24 231045](https://github.com/user-attachments/assets/7feb5ffa-8b0c-4570-8adc-a6b627651be2)
+**입/출금 내역 추가 후 화면**
+![스크린샷 2024-11-24 231055](https://github.com/user-attachments/assets/f42d822f-b4a7-4733-8e22-9b5534a2734d)
+![스크린샷 2024-11-24 231410](https://github.com/user-attachments/assets/9dc38562-972b-48c8-86c9-31a14203f9a4)
+**입/출금 필터링**
+![스크린샷 2024-11-24 231420](https://github.com/user-attachments/assets/fabbc4f1-ed72-4420-9aad-f37cb2491e1a)
+![image](https://github.com/user-attachments/assets/9060c926-29e7-420e-b8c1-46831a31b9ce)
+**날짜 기준 필터링**
+![스크린샷 2024-11-24 231443](https://github.com/user-attachments/assets/b92b9af2-1bcf-445d-bc18-f7e80e5d9710)
+
 
 
