@@ -31,7 +31,7 @@ public class Transaction {
     @Column(name = "transaction_type")
     private String transactionType;
 
-    @Column(name = "amount", unique = true)
+    @Column(name = "amount")
     private Long amount;
 
     @Column(name = "description")
