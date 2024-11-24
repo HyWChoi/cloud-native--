@@ -1,0 +1,5 @@
+rootProject.name = 'cloud_native'
+
+include 'api-gateway'
+include 'transaction-service'
+include 'user-service'

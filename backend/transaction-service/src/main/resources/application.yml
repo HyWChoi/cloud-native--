@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/financial_management?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: finance_admin
+    password: 123456
+
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: true
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v4/api-docs
+  packages-to-scan: com.finance.transaction_service
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+
+server:
+  port: 8082
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace

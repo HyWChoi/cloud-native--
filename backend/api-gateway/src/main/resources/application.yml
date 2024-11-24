@@ -1,0 +1,26 @@
+# src/main/resources/application.yml
+server:
+  port: 8080
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - RemoveResponseHeader=Access-Control-Allow-Origin
+
+service:
+  user:
+    url: http://user-service:8081
+  transaction:
+    url: http://transaction-service:8082
+
+# local 개발 환경 actuator 설정
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+    com.finance.api_gateway: DEBUG
