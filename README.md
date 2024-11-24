@@ -20,6 +20,31 @@ graph TB
     US --> MySQL
     TS --> MySQL
 ```
+- jpa의 ddl을 사용하여 데이터 베이스를 관리
+    - 따라서 docker-jpa를 사용해, 매번 데이터 베이스의 스키마를 입력하여 데이터베이스 구조를 만들지 않고, 자동으로 생성
+## 통신 절차
+**모든 외부 통신은 Gateway를 통해서만 가능**
+1. 사용자 인증 플로우
+   1.1. 사용자가 로그인 요청을 API Gateway로 전송
+   1.2. Gateway는 요청을 User Service로 라우팅
+   1.3. User Service는 인증 후 Redis에 세션 정보 저장
+   1.4. 발급된 세션 키를 클라이언트에 반환
+   1.5. 클라이언트는 세션 키를 로컬스토리지에 저장
+   1.5. 이후 요청에서 세션 키로 인증 상태 확인
+2. 트랜잭션 처리 플로우
+   2.1. 클라이언트가 거래 관련 요청을 Gateway로 전송
+   2.2. Gateway는 세션 키를 검증 (User Service와 통신)
+   2.3. 인증된 요청을 Transaction Service로 라우팅 (세션 키를 X-USER-ID 로 변환하여 헤더에 붙임)
+   2.4. Transaction Service는 MySQL DB와 통신하여 거래 정보 처리
+   2.5 처리 결과를 클라이언트에 반환
+3. 서비스 간 통신
+   3.1. API Gateway: 모든 요청의 진입점 역할 (포트: 8080)
+   3.2. User Service: 인증/인가 및 사용자 정보 관리 (포트: 8081)
+   3.3. Transaction Service: 거래 데이터 처리 및 관리 (포트: 8082)
+4. 데이터 동기화
+   4.1. Redis: 세션 정보 저장
+   4.2. MySQL: 세션 외 데이터 저장소로 사용
+   4.3. 각 서비스는 (api gateway제외) 자체적으로 jpa를 사용해 데이터베이스 관리
 
 ## 기술 스택
 
