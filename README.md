@@ -10,8 +10,6 @@ graph TB
     Client[Client] --> Gateway[API Gateway :8000]
     Gateway --> US[User Service :8001]
     Gateway --> TS[Transaction Service :8002]
-    Gateway --> AS[Analytics Service :8003]
-    Gateway --> NS[Notification Service :8004]
     
     subgraph Databases
       Redis[(Redis Cache)]
@@ -22,10 +20,6 @@ graph TB
     US --> MySQL
     TS --> Redis
     TS --> MySQL
-    AS --> Redis
-    AS --> MySQL
-    NS --> Redis
-    NS --> MySQL
 ```
 
 ## 기술 스택
