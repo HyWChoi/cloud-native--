@@ -16,9 +16,8 @@ graph TB
       MySQL[(MySQL DB)]
     end
     
-    Gateway --> Redis
+    US --> Redis
     US --> MySQL
-    Gateway --> Redis
     TS --> MySQL
 ```
 
